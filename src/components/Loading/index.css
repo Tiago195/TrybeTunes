@@ -1,0 +1,24 @@
+.loadind {
+  margin: 250px auto;
+  width: fit-content;
+}
+
+/* .loadind h2::after {
+  position: absolute;
+  animation: load 3s infinite ease-in;
+  content: '';
+}
+
+@keyframes load {
+  from {
+    content: '.'
+  }
+
+  50% {
+    content: '..'
+  }
+
+  to {
+    content: '...'
+  }
+}; */
