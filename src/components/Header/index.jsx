@@ -6,13 +6,8 @@ import iconeUsuario from '../../img/usuarioIcon.png';
 import './index.css';
 
 export default class Header extends Component {
-  handleClick({ target }) {
-    target.style.color = 'white';
-    target.style.backgroundColor = '#036B52';
-  }
-
   render() {
-    const { usuario } = this.props;
+    const { usuario, page } = this.props;
     return (
       <header data-testid="header-component">
         <section className="header-container">
@@ -25,13 +20,37 @@ export default class Header extends Component {
         <nav className="nav-container">
           <ul>
             <li>
-              <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+              <Link
+                to="/search"
+                data-testid="link-to-search"
+                style={ page === 'pesquisa'
+                  ? { color: 'white', backgroundColor: '#036b52' }
+                  : {} }
+              >
+                Pesquisa
+              </Link>
             </li>
             <li>
-              <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+              <Link
+                to="/favorites"
+                data-testid="link-to-favorites"
+                style={ page === 'favorites'
+                  ? { color: 'white', backgroundColor: '#036b52' }
+                  : {} }
+              >
+                Favoritas
+              </Link>
             </li>
             <li>
-              <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+              <Link
+                to="/profile"
+                data-testid="link-to-profile"
+                style={ page === 'profile'
+                  ? { color: 'white', backgroundColor: '#036b52' }
+                  : {} }
+              >
+                Perfil
+              </Link>
             </li>
           </ul>
         </nav>
@@ -41,5 +60,11 @@ export default class Header extends Component {
 }
 
 Header.propTypes = {
-  usuario: propTypes.string.isRequired,
+  usuario: propTypes.string,
+  page: propTypes.string,
+};
+
+Header.defaultProps = {
+  page: 'false',
+  usuario: 'usuario',
 };

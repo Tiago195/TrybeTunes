@@ -46,6 +46,7 @@ export default class Login extends Component {
                     placeholder="Nome"
                     value={ value }
                     onChange={ input }
+                    maxLength="13"
                   />
                 </label>
                 <button

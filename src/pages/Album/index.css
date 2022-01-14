@@ -1,0 +1,23 @@
+.album-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 50px;
+}
+
+.album-pai {
+  display: flex;
+  gap: 60px;
+}
+
+.album {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.album img {
+  border-radius: 6px;
+  width: 100%;
+}
