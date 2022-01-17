@@ -42,7 +42,9 @@ export default class Album extends Component {
               <h1 data-testid="album-name">{ collectionName }</h1>
               <h2 data-testid="artist-name">{ artistName }</h2>
             </section>
-            <MusicCard albumList={ albumList } />
+            <MusicCard
+              albumList={ albumList }
+            />
           </section>
         </section>
       </div>

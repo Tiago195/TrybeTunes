@@ -7,7 +7,7 @@ import {
 import Login from './pages/Login/index';
 import Search from './pages/Search/index';
 import Album from './pages/Album/index';
-import Favorites from './pages/Favorites';
+import Favorites from './pages/Favorites/index';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
