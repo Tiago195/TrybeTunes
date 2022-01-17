@@ -8,8 +8,8 @@
 
 .album-pai {
   display: flex;
-  width: 80vw;
   gap: 60px;
+  width: 80vw;
 }
 
 .album {
@@ -20,6 +20,6 @@
 }
 
 .album img {
-  border-radius: 6px; 
+  border-radius: 6px;
   width: 100%;
 }
