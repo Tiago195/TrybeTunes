@@ -10,7 +10,7 @@ import Album from './pages/Album/index';
 import Favorites from './pages/Favorites/index';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile/index';
-import ProfileEdit from './pages/ProfileEdit';
+import ProfileEdit from './pages/ProfileEdit/index';
 
 class App extends React.Component {
   constructor() {
