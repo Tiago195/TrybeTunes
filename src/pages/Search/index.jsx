@@ -55,7 +55,7 @@ export default class Search extends Component {
         encontrado: false,
         naoEncontrado: true,
       })));
-    this.setState({ artista: search, search: '' });
+    this.setState({ artista: search, search: '', buttonIstrue: false });
   }
 
   render() {

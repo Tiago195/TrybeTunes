@@ -1,0 +1,18 @@
+.favoritas-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 100px;
+}
+
+.favoritas-container h1 {
+  align-self: flex-start;
+  font-size: 24px;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.favoritas {
+  width: 70vw;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../components/Header/index';
-import { getUser } from '../services/userAPI';
+import Header from '../../components/Header/index';
+import { getUser } from '../../services/userAPI';
 
 export default class Profile extends Component {
   constructor() {

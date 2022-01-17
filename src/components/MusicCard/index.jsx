@@ -12,6 +12,7 @@ export default class MusicCard extends Component {
     this.state = {
       loadind: true,
       musicasFavoritas: {},
+      favoritList: [],
     };
   }
 
@@ -23,6 +24,7 @@ export default class MusicCard extends Component {
           a[b.trackId] = true;
           return a;
         }, {}),
+        favoritList: e,
       });
     });
   }
@@ -33,55 +35,67 @@ export default class MusicCard extends Component {
     if (musicasFavoritas[target.name]) {
       removeSong(JSON.parse(target.value)).then(() => {
         this.setState(() => {
-          musicasFavoritas[target.name] = target.cheloadind && cked;
+          musicasFavoritas[target.name] = false;
           return { loadind: false };
         });
       });
     } else {
       addSong(JSON.parse(target.value)).then(() => {
         this.setState(() => {
-          musicasFavoritas[target.name] = target.checked;
+          musicasFavoritas[target.name] = true;
           return { loadind: false };
         });
       });
     }
+    this.setState({ favoritList: JSON.parse(localStorage.getItem('favorite_songs')) });
   }
 
   render() {
     const { albumList } = this.props;
-    const { loadind, musicasFavoritas } = this.state;
+    const { loadind, musicasFavoritas, favoritList } = this.state;
+    const renderizar = albumList.length > 0 ? [...albumList] : [...favoritList];
     return (
       <div className="musicas-container">
         {loadind ? <Loading />
           : (
             <ul>
-              {albumList.filter((e) => e.kind === 'song').map((e) => (
+              {renderizar.map((e) => (
                 <li className="lis" key={ e.trackId }>
-                  <h4 className="h4-item">{e.trackName}</h4>
-                  <div className="audio-container">
-                    <audio
-                      className="audio"
-                      data-testid="audio-component"
-                      src={ e.previewUrl }
-                      controls
-                    >
-                      <track kind="captions" />
-                      O seu navegador não suporta o elemento
-                      {' '}
-                      <code>audio</code>
-                      .
-                    </audio>
-                    <label htmlFor={ e.trackId }>
-                      <input
-                        data-testid={ `checkbox-music-${e.trackId}` }
-                        type="checkbox"
-                        name={ e.trackId }
-                        id={ e.trackId }
-                        value={ JSON.stringify(e) }
-                        checked={ musicasFavoritas[e.trackId] }
-                        onChange={ this.handleFavoto }
-                      />
-                    </label>
+                  {!albumList.length > 0 && (
+                    <img src={ e.artworkUrl100 } alt="foto da musica" />
+                  )}
+                  <div className="musicas-coitainer">
+                    <h4 className="h4-item">{e.trackName}</h4>
+                    <div className="audio-container">
+                      <audio
+                        className="audio"
+                        data-testid="audio-component"
+                        src={ e.previewUrl }
+                        controls
+                      >
+                        <track kind="captions" />
+                        O seu navegador não suporta o elemento
+                        {' '}
+                        <code>audio</code>
+                        .
+                      </audio>
+                      <label htmlFor={ e.trackId }>
+                        Favorita
+                        <input
+                          data-testid={ `checkbox-music-${e.trackId}` }
+                          type="checkbox"
+                          name={ e.trackId }
+                          id={ e.trackId }
+                          value={ JSON.stringify(e) }
+                          checked={ musicasFavoritas[e.trackId] }
+                          onChange={ this.handleFavoto }
+                        />
+                        <i
+                          className={ musicasFavoritas[e.trackId]
+                            ? 'fa fa-heart' : 'far fa-heart' }
+                        />
+                      </label>
+                    </div>
                   </div>
                 </li>
               ))}
@@ -93,5 +107,9 @@ export default class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  albumList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  albumList: PropTypes.arrayOf(PropTypes.object),
+};
+
+MusicCard.defaultProps = {
+  albumList: [],
 };

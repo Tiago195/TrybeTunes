@@ -32,6 +32,7 @@ export default class Album extends Component {
 
   render() {
     const { name, img, collectionName, artistName, albumList } = this.state;
+    const albumFiltrado = albumList.filter(({ kind }) => kind === 'song');
     return (
       <div data-testid="page-album">
         <Header usuario={ name } />
@@ -43,7 +44,7 @@ export default class Album extends Component {
               <h2 data-testid="artist-name">{ artistName }</h2>
             </section>
             <MusicCard
-              albumList={ albumList }
+              albumList={ albumFiltrado }
             />
           </section>
         </section>
