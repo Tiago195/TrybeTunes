@@ -4,6 +4,7 @@ import Header from '../../components/Header/index';
 import { getUser, updateUser } from '../../services/userAPI';
 import Loading from '../../components/Loading/index';
 import user from '../../img/user-circle-solid.svg';
+import './index.css';
 
 export default class ProfileEdit extends Component {
   constructor() {
@@ -87,8 +88,8 @@ export default class ProfileEdit extends Component {
         {redirect && <Redirect to="/profile" />}
         {loading ? <Loading />
           : (
-            <form>
-              <section>
+            <form className="form-edit-container">
+              <section className="edit-img">
                 <img
                   src={ image || user }
                   alt="icone usuario"
@@ -96,6 +97,7 @@ export default class ProfileEdit extends Component {
                 />
                 <label htmlFor="edit-input-image">
                   <input
+                    className="input-placeholder"
                     type="text"
                     name="inputImage"
                     data-testid="edit-input-image"
@@ -106,12 +108,13 @@ export default class ProfileEdit extends Component {
                   />
                 </label>
               </section>
-              <section>
-                <div>
+              <section className="edit-nameEmailDescription">
+                <div className="mudar-nome">
                   <h3>Nome</h3>
                   <h4>Fique à vontade para usar seu nome social</h4>
                   <label htmlFor="edit-input-name">
                     <input
+                      className="input-style input-placeholder"
                       type="text"
                       name="inputName"
                       placeholder="Novo Nome"
@@ -122,11 +125,12 @@ export default class ProfileEdit extends Component {
                     />
                   </label>
                 </div>
-                <div>
+                <div className="mudar-email">
                   <h3>E-mail</h3>
                   <h4>Escolha um e-mail que consulte diariamente</h4>
                   <label htmlFor="edit-input-email">
                     <input
+                      className="input-style input-placeholder"
                       type="email"
                       name="inputEmail"
                       placeholder="usuario@usuario.com.br"
@@ -137,20 +141,22 @@ export default class ProfileEdit extends Component {
                     />
                   </label>
                 </div>
-                <div>
+                <div className="mudar-description">
                   <h3>Descrição</h3>
                   <textarea
+                    className="input-style input-placeholder"
+                    style={ { resize: 'none' } }
                     name="inputDescription"
                     id=""
                     cols="30"
-                    rows="5"
+                    rows="4"
                     value={ inputDescription }
                     data-testid="edit-input-description"
                     placeholder="Sobre mim"
                     onChange={ this.handleChange }
                   />
                 </div>
-                <div>
+                <div className="button-edit">
                   <button
                     type="submit"
                     data-testid="edit-button-save"

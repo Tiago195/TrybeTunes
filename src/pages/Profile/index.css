@@ -1,0 +1,55 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.user-edit {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-edit img {
+  height: 80px;
+  width: 80px;
+}
+
+.user-edit button {
+  background-color: white;
+  border: 1px solid #003be5;
+  border-radius: 7px;
+  height: 32px;
+  width: 120px;
+}
+
+.user-edit button a {
+  color: #003be5;
+}
+
+.perfil-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name-edit, .email-edit, .description-edit {
+  color: #3d495c;
+}
+
+.name-edit h3, .email-edit h3, .description-edit h3 {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.name-edit h4, .email-edit h4, .description-edit h4 {
+  font-size: 12px;
+  line-height: 150%;
+}
