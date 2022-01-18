@@ -80,7 +80,7 @@ export default class ProfileEdit extends Component {
   }
 
   render() {
-    const { loading, name, image, buttonDiseble, inputImage,
+    const { loading, name, buttonDiseble, inputImage,
       inputName, inputEmail, inputDescription, redirect } = this.state;
     return (
       <div data-testid="page-profile-edit">
@@ -91,7 +91,7 @@ export default class ProfileEdit extends Component {
             <form className="form-edit-container">
               <section className="edit-img">
                 <img
-                  src={ image || user }
+                  src={ inputImage || user }
                   alt="icone usuario"
                   data-testid="profile-image"
                 />
