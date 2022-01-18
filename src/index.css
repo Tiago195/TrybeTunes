@@ -23,3 +23,12 @@ code {
   display: flex;
   justify-content: center;
 }
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
